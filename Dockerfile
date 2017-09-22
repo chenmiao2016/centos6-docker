@@ -5,7 +5,9 @@ LABEL name="CentOS Base Image" \
     license="GPLv2" \
     build-date="20170406"
 
-ENV LANG zh_CN.UTF-8
-ENV LC_ALL zh_CN.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; 
 
 CMD ["/bin/bash"]
