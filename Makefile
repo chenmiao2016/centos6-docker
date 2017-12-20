@@ -8,7 +8,7 @@ REG_URL = harbor.dahuatech.com
 PROJECT_NAME = chenmiao
 
 build:
-	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .
+	docker build --pull -t $(IMAGE_NAME):$(IMAGE_TAG) .
 	docker images|grep none|awk '{print $$3}'|xargs -r docker rmi
 push:
 	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(REG_URL)/$(PROJECT_NAME)/$(IMAGE_NAME):$(IMAGE_TAG)
